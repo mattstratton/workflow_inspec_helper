@@ -2,6 +2,47 @@
 
 Provides helper recipes to enable [InSpec](https://www.inspec.io) tests in Chef Workflow
 
+## Usage
+
+In your build cookbook, add the following to your `metadata.rb`
+
+`depends 'automate_inspec_helper'`
+
+Add the following to your `default.rb` in your build cookbook:
+
+`include_recipe 'automate_inspec_helper::default'`
+
+Add the following to your `functional.rb` in your build cookbook:
+
+`include_recipe 'automate_inspec_helper::functional'`
+
+This cookbook makes heavy use of the `delivery-secrets` databag from `delivery-sugar`. Create an encrypted databag that contains the following item:
+
+```
+{
+ "id": "<your-enterprise>-<your-organization>",
+ "inspec": {
+   "ssh-user": "inspec",
+   "ssh-private-key": "<YOUR-PRIVATE-KEY-HERE",
+   "ssh-public-key": "<YOUR-PUBLIC-KEY-HERE",
+   "winrm-user": "inspec",
+   "winrm-password": "<YOUR-PASSWORD-HERE>"
+ }
+}
+```
+
+For example, if your Workflow enterprise is "bluth" and the organization is "bananastand", the databag item should be called `bluth-bananastand`.
+
+The key used to encrypt this databag needs to be copied to `/etc/chef/encrypted_data_bag_secret` on all of your builders/runners.
+
+### Linux Infrastructure Nodes
+The public key must be added to `authorized_keys` for a user named `inspec` (which needs passwordless sudo) on all of your infrastructure nodes where you wish to run the inspec test (i.e., acceptance, union, rehearsal, and delivered).
+
+### Windows Infrastructure Nodes
+The key use to encrypt the databag also must be added to `/etc/chef/encrypted_data_bag_secret` on your Linux infrastructure nodes, or to `c:\chef\encrypted_data_bag_secret` on any Windows infrastructure nodes. A user named 'inspec' with the password set in `winrm-password` must be created on these nodes, and added to the Administrators group. Additionally, WinRM must be allowed to these infrastructure nodes from your builders/runners. 
+
+
+
 ## License & Authors
 - Author:: Matt Stratton (<matt.stratton@gmail.com>)
 
