@@ -1,6 +1,6 @@
 # automate_inspec_helper
 
-TODO: Enter the cookbook description here.
+Provides helper recipes to enable [InSpec](https://www.inspec.io) tests in Chef Workflow
 
 ## License & Authors
 - Author:: Matt Stratton (<matt.stratton@gmail.com>)
