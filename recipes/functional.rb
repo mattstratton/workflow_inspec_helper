@@ -40,7 +40,6 @@ with_server_config do
                   "-t ssh://#{ssh_user}@#{infra_node['ipaddress']} " \
                   "-i #{ssh_key_path}"
         action :run
-        sensitive true
         live_stream true
       end
     when 'windows'
@@ -53,6 +52,7 @@ with_server_config do
                   "-t winrm://#{winrm_user}@#{infra_node['ipaddress']} " \
                   "--password '#{winrm_password}'"
         action :run
+        sensitive true
         live_stream true
       end
     end
