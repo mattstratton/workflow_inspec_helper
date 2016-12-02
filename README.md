@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mattstratton/automate_inspec_helper.svg?branch=master)](https://travis-ci.org/mattstratton/automate_inspec_helper)
+
 # automate_inspec_helper
 
 Provides helper recipes to enable [InSpec](https://www.inspec.io) tests in Chef Workflow
