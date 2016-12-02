@@ -50,6 +50,8 @@ The key use to encrypt the databag also must be added to `/etc/chef/encrypted_da
 ## License & Authors
 - Author:: Matt Stratton (<matt.stratton@gmail.com>)
 
+Special thanks to Tom Robinson-Gore for insight and suggestions
+
 ```text
 Copyright:: 2016 Matt Stratton
 
