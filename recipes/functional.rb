@@ -45,14 +45,18 @@ with_server_config do
     when 'windows'
       winrm_user = inspec_data['inspec']['winrm-user']
       winrm_password = inspec_data['inspec']['winrm-password']
-      execute 'execute_functional_inspec' do
-        command '/opt/chefdk/embedded/bin/inspec ' \
+      directory "#{workflow_workspace}/#{workflow_change_enterprise}/#{workflow_change_organization}/#{workflow_change_project}/#{workflow_stage}/#{workflow_phase}/#{workflow_change_id}"
+      file "#{workflow_workspace}/#{workflow_change_enterprise}/#{workflow_change_organization}/#{workflow_change_project}/#{workflow_stage}/#{workflow_phase}/#{workflow_change_id}/winrm.sh" do
+        content '/opt/chefdk/embedded/bin/inspec ' \
                   "exec #{node['delivery']['workspace']['repo']}"\
                   '/test/recipes/ ' \
                   "-t winrm://#{winrm_user}@#{infra_node['ipaddress']} " \
                   "--password '#{winrm_password}'"
-        action :run
         sensitive true
+      end
+      execute 'execute_functional_inspec' do
+        command "#{workflow_workspace}/#{workflow_change_enterprise}/#{workflow_change_organization}/#{workflow_change_project}/#{workflow_stage}/#{workflow_phase}/#{workflow_change_id}/winrm.sh"
+        action :run
         live_stream true
       end
     end
