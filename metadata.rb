@@ -6,10 +6,12 @@ description 'Installs/Configures automate_inspec_helper'
 long_description 'Installs/Configures automate_inspec_helper'
 version '0.1.0'
 
+depends 'delivery-truck'
+
 # If you upload to Supermarket you should set this so your cookbook
 # gets a `View Issues` link
-# issues_url 'https://github.com/<insert_org_here>/automate_inspec_helper/issues' if respond_to?(:issues_url)
+issues_url 'https://github.com/mattstratton/automate_inspec_helper/issues' if respond_to?(:issues_url)
 
 # If you upload to Supermarket you should set this so your cookbook
 # gets a `View Source` link
-# source_url 'https://github.com/<insert_org_here>/automate_inspec_helper' if respond_to?(:source_url)
+source_url 'https://github.com/mattstratton/automate_inspec_helper' if respond_to?(:source_url)
