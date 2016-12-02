@@ -16,3 +16,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include_recipe 'delivery-truck::default'
+
+# Get the delivery-secrets stuff
+with_server_config do
+  inspec_data = get_project_secrets
+
+  file "#{workflow_workspace}/#{inspec_data['inspec']['ssh-user']}.pem" do
+    sensitive true
+    content inspec_data['inspec']['ssh-private-key']
+  end
+end
