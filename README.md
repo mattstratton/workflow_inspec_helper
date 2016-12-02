@@ -8,6 +8,10 @@ In your build cookbook, add the following to your `metadata.rb`
 
 `depends 'automate_inspec_helper'`
 
+For now, you will also need to add the following to your build cookbook's `Berksfile`:
+
+`  cookbook 'automate_inspec_helper', git: 'https://github.com/mattstratton/automate_inspec_helper'`
+
 Add the following to your `default.rb` in your build cookbook:
 
 `include_recipe 'automate_inspec_helper::default'`
@@ -39,7 +43,7 @@ The key used to encrypt this databag needs to be copied to `/etc/chef/encrypted_
 The public key must be added to `authorized_keys` for a user named `inspec` (which needs passwordless sudo) on all of your infrastructure nodes where you wish to run the inspec test (i.e., acceptance, union, rehearsal, and delivered).
 
 ### Windows Infrastructure Nodes
-The key use to encrypt the databag also must be added to `/etc/chef/encrypted_data_bag_secret` on your Linux infrastructure nodes, or to `c:\chef\encrypted_data_bag_secret` on any Windows infrastructure nodes. A user named 'inspec' with the password set in `winrm-password` must be created on these nodes, and added to the Administrators group. Additionally, WinRM must be allowed to these infrastructure nodes from your builders/runners. 
+The key use to encrypt the databag also must be added to `/etc/chef/encrypted_data_bag_secret` on your Linux infrastructure nodes, or to `c:\chef\encrypted_data_bag_secret` on any Windows infrastructure nodes. A user named 'inspec' with the password set in `winrm-password` must be created on these nodes, and added to the Administrators group. Additionally, WinRM must be allowed to these infrastructure nodes from your builders/runners.
 
 
 
