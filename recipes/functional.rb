@@ -45,8 +45,7 @@ with_server_config do
     when 'windows'
       winrm_user = inspec_data['inspec']['winrm-user']
       winrm_password = inspec_data['inspec']['winrm-password']
-      directory "#{workflow_workspace}/#{workflow_change_enterprise}/#{workflow_change_organization}/#{workflow_change_project}/#{workflow_stage}/#{workflow_phase}/#{workflow_change_id}"
-      file "#{workflow_workspace}/#{workflow_change_enterprise}/#{workflow_change_organization}/#{workflow_change_project}/#{workflow_stage}/#{workflow_phase}/#{workflow_change_id}/winrm.sh" do
+      file "#{workflow_workspace_chef}/#{workflow_change_id}-winrm.sh" do
         content '/opt/chefdk/embedded/bin/inspec ' \
                   "exec #{node['delivery']['workspace']['repo']}"\
                   '/test/recipes/ ' \
