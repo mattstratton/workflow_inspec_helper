@@ -45,8 +45,8 @@ with_server_config do
     when 'windows'
       winrm_user = inspec_data['inspec']['winrm-user']
       winrm_password = inspec_data['inspec']['winrm-password']
-      file "#{workflow_workspace_repo}/#{workflow_phase}/#{workflow_stage}/repo/inspec-winrm.sh" do
-        content "Hello"
+      file "#{workflow_workspace_repo}/inspec-winrm.sh" do
+        content 'Hello'
       end
       execute 'execute_functional_inspec' do
         command '/opt/chefdk/embedded/bin/inspec ' \
