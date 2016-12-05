@@ -19,7 +19,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[automate_inspec_helper::default]
+      - recipe[workflow_inspec_helper::default]
     verifier:
       inspec_tests:
         - test/recipes

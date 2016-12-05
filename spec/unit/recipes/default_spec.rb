@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: automate_inspec_helper
+# Cookbook Name:: workflow_inspec_helper
 # Spec:: default
 #
 # Copyright 2016 Matt Stratton
@@ -18,7 +18,7 @@
 
 require 'spec_helper'
 
-describe 'automate_inspec_helper::default' do
+describe 'workflow_inspec_helper::default' do
   context 'When all attributes are default, on an unspecified platform' do
     let(:chef_run) do
       runner = ChefSpec::ServerRunner.new

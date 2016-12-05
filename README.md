@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/mattstratton/automate_inspec_helper.svg?branch=master)](https://travis-ci.org/mattstratton/automate_inspec_helper)
+[![Build Status](https://travis-ci.org/mattstratton/workflow_inspec_helper.svg?branch=master)](https://travis-ci.org/mattstratton/workflow_inspec_helper)
 
-# automate_inspec_helper
+# workflow_inspec_helper
 
 Provides helper recipes to enable [InSpec](https://www.inspec.io) tests in Chef Workflow
 
@@ -8,19 +8,19 @@ Provides helper recipes to enable [InSpec](https://www.inspec.io) tests in Chef 
 
 In your build cookbook, add the following to your `metadata.rb`
 
-`depends 'automate_inspec_helper'`
+`depends 'workflow_inspec_helper'`
 
 For now, you will also need to add the following to your build cookbook's `Berksfile`:
 
-`  cookbook 'automate_inspec_helper', git: 'https://github.com/mattstratton/automate_inspec_helper'`
+`  cookbook 'workflow_inspec_helper', git: 'https://github.com/mattstratton/workflow_inspec_helper'`
 
 Add the following to your `default.rb` in your build cookbook:
 
-`include_recipe 'automate_inspec_helper::default'`
+`include_recipe 'workflow_inspec_helper::default'`
 
 Add the following to your `functional.rb` in your build cookbook:
 
-`include_recipe 'automate_inspec_helper::functional'`
+`include_recipe 'workflow_inspec_helper::functional'`
 
 This cookbook makes heavy use of the `delivery-secrets` databag from `delivery-sugar`. Create an encrypted databag that contains the following item:
 

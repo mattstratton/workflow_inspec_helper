@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: automate_inspec_helper
+# Cookbook Name:: workflow_inspec_helper
 # Recipe:: default
 #
 # Copyright 2016 Matt Stratton

@@ -1,6 +1,6 @@
 # # encoding: utf-8
 
-# Inspec test for recipe automate_inspec_helper::functional
+# Inspec test for recipe workflow_inspec_helper::functional
 
 # The Inspec reference, with examples and extensive documentation, can be
 # found at https://docs.chef.io/inspec_reference.html
