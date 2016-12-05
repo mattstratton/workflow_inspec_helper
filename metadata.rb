@@ -2,9 +2,9 @@ name 'automate_inspec_helper'
 maintainer 'Matt Stratton'
 maintainer_email 'matt.stratton@gmail.com'
 license 'apachev2'
-description 'Installs/Configures automate_inspec_helper'
-long_description 'Installs/Configures automate_inspec_helper'
-version '0.1.0'
+description 'Provides helper recipes to enable InSpec tests in Chef Workflow'
+long_description 'Provides helper recipes to enable InSpec tests in Chef Workflow'
+version '0.1.1'
 
 depends 'delivery-truck'
 
